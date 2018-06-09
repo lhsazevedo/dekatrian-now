@@ -8,7 +8,7 @@
 </template>
 
 <script>
-const dekajs = require("vitorteccom-dekajs")
+import dekajs from "vitorteccom-dekajs"
 
 const meses = [
   'Auroran',
