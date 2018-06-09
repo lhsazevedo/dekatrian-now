@@ -1,4 +1,4 @@
-# Dkatrianow
+# Dekatrianow
 
 > A simple page that displays the current date in the Dekatrian calendar.
 
