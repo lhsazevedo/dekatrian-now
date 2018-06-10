@@ -1,7 +1,7 @@
 {
   "name": "dekatrianow",
   "description": "A simple page that displays the current date in the Dekatrian calendar.",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Lucas Henrique Azevedo",
   "license": "MIT",
   "private": true,
