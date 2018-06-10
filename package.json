@@ -6,8 +6,9 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot",
-    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules"
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --open --hot --content-base src",
+    "build": "cross-env NODE_ENV=production webpack --progress --hide-modules && cp src/index.html dist/index.html",
+    "deploy": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "vitorteccom-dekajs": "^2.0.1",
@@ -26,6 +27,7 @@
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "file-loader": "^1.1.4",
+    "gh-pages": "^1.2.0",
     "uglifyjs-webpack-plugin": "^1.2.5",
     "vue-loader": "^13.0.5",
     "vue-template-compiler": "^2.4.4",
