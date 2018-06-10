@@ -58,7 +58,7 @@ export default {
   },
 
   created: function () {
-    this.updateDate
+    this.updateDate()
     setInterval(this.updateDate, 1000)
   }
 }
