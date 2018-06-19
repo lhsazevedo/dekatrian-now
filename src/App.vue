@@ -1,8 +1,12 @@
 <template>
   <div id="app">
     <div class="wrapper">
-      <div class="day">{{day}}</div>
-      <div class="month">{{month}}</div>
+      <div v-if="date.dayName" class="date month">{{date.dayName}}</div>
+      <div v-else>
+        <div class="date day">{{date.day}}</div>
+        <div class="date month">{{date.monthName}}</div>
+      </div>
+      <div class="year">{{date.year.split('').join(' ')}}</div>
     </div>
   </div>
 </template>
@@ -14,14 +18,8 @@ export default {
   name: 'app',
   data () {
     return {
-      date: ["", "", ""]
+      date: {}
     }
-  },
-
-  computed: {
-    day: (self) => self.date[0],
-    month: (self) => self.date[1],
-    year: (self) => self.date[2]
   },
 
   methods: {
@@ -59,12 +57,17 @@ html, body {
 
 .day {
   font-size: 50vmin;
-  line-height: 80%;
   font-weight: bold;
+  line-height: .8em;
 }
 
 .month {
   font-size: 20vmin;
+  line-height: 1em;
+}
+
+.year {
+  font-size: 10vmin;
 }
 
 </style>
