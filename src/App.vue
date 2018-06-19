@@ -1,59 +1,30 @@
 <template>
   <div id="app">
     <div class="wrapper">
-      <div class="day">{{day}}</div>
-      <div class="month">{{month}}</div>
+      <div v-if="date.dayName" class="date month">{{date.dayName}}</div>
+      <div v-else>
+        <div class="date day">{{date.day}}</div>
+        <div class="date month">{{date.monthName}}</div>
+      </div>
+      <div class="year">{{date.year.split('').join(' ')}}</div>
     </div>
   </div>
 </template>
 
 <script>
-import dekajs from "vitorteccom-dekajs"
+import dekatrian from './utils/dekatrian'
 
-const meses = [
-  'Auroran',
-  'Borean',
-  'Coronian',
-  'Driadan',
-  'Electran',
-  'Faian',
-  'Gaian',
-  'Hermetian',
-  'Irisian',
-  'Kaosian',
-  'Lunan',
-  'Maian',
-  'Nixan'
-]
- 
 export default {
   name: 'app',
   data () {
     return {
-      date: ["", "", ""]
+      date: {}
     }
-  },
-
-  computed: {
-    day: (self) => self.date[0],
-    month: (self) => self.date[1],
-    year: (self) => self.date[2]
   },
 
   methods: {
     updateDate: function() {
-      const date = new Date
-
-      const year = date.getFullYear()
-      const month = date.getMonth()+1
-      const day = date.getDate()
-
-      dekajs.gregToDeka(year, month, day)
-        .split('-')
-        .reverse()
-        .map( (v, i) => {
-          this.$set(this.date, i, (i==1) ? meses[v-1] : v)
-        })
+      this.date = dekatrian.date()
     }
   },
 
@@ -86,12 +57,17 @@ html, body {
 
 .day {
   font-size: 50vmin;
-  line-height: 80%;
   font-weight: bold;
+  line-height: .8em;
 }
 
 .month {
   font-size: 20vmin;
+  line-height: 1em;
+}
+
+.year {
+  font-size: 10vmin;
 }
 
 </style>
