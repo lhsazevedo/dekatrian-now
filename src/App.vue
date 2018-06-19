@@ -8,24 +8,8 @@
 </template>
 
 <script>
-import dekajs from "vitorteccom-dekajs"
+import dekatrian from './utils/dekatrian'
 
-const meses = [
-  'Auroran',
-  'Borean',
-  'Coronian',
-  'Driadan',
-  'Electran',
-  'Faian',
-  'Gaian',
-  'Hermetian',
-  'Irisian',
-  'Kaosian',
-  'Lunan',
-  'Maian',
-  'Nixan'
-]
- 
 export default {
   name: 'app',
   data () {
@@ -42,18 +26,7 @@ export default {
 
   methods: {
     updateDate: function() {
-      const date = new Date
-
-      const year = date.getFullYear()
-      const month = date.getMonth()+1
-      const day = date.getDate()
-
-      dekajs.gregToDeka(year, month, day)
-        .split('-')
-        .reverse()
-        .map( (v, i) => {
-          this.$set(this.date, i, (i==1) ? meses[v-1] : v)
-        })
+      this.date = dekatrian.date()
     }
   },
 
