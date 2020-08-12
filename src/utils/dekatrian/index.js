@@ -28,8 +28,8 @@ export default {
     const dekajsDate = getDate()
     const dekaDate = dekajsDate
 
-    if (dekajsDate.month === 0) {
-      if (dekajsDate.day === 1) { dekaDate.dayName = 'Achronian' } else if (dekajsDate.day === 2) { dekaDate.dayName = 'Sinchronian' }
+    if (dekajsDate.month === '0') {
+      if (dekajsDate.day === '1') { dekaDate.dayName = 'Achronian' } else if (dekajsDate.day === '2') { dekaDate.dayName = 'Sinchronian' }
     } else {
       dekaDate.monthName = dekatrianMonthName(dekaDate.month)
     }
