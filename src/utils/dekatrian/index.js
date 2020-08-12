@@ -1,4 +1,4 @@
-import dekajs from "vitorteccom-dekajs"
+import { gregToDeka } from "@sepbit/dekajs"
 import months from "./months.js"
 
 const getDate = function () {
@@ -10,7 +10,7 @@ const getDate = function () {
         day: date.getDate()
     }
 
-    const dekajsDate = dekajs.gregToDeka(gregDate.year, gregDate.month, gregDate.day).split('-')
+    const dekajsDate = gregToDeka(gregDate.year, gregDate.month, gregDate.day).split('-')
 
     return {
         year: dekajsDate[0],
@@ -29,9 +29,9 @@ export default {
         const dekaDate = dekajsDate
 
         if (dekajsDate.month == 0) {
-            if (dekajsDate.day == 0)
+            if (dekajsDate.day == 1)
                 dekaDate.dayName = 'Achronian'
-            else if (dekajsDate.day == 1)
+            else if (dekajsDate.day == 2)
                 dekaDate.dayName = 'Sinchronian'
         } else {
             dekaDate.monthName = dekatrianMonthName(dekaDate.month)
