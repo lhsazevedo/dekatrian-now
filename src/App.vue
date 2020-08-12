@@ -1,12 +1,23 @@
 <template>
   <div id="app">
     <div class="wrapper">
-      <div v-if="date.dayName" class="date dayname">{{date.dayName}}</div>
-      <div v-else>
-        <div class="date day">{{date.day}}</div>
-        <div class="date month">{{date.monthName}}</div>
+      <div
+        v-if="date.dayName"
+        class="date dayname"
+      >
+        {{ date.dayName }}
       </div>
-      <div class="year">{{date.year.split('').join(' ')}}</div>
+      <div v-else>
+        <div class="date day">
+          {{ date.day }}
+        </div>
+        <div class="date month">
+          {{ date.monthName }}
+        </div>
+      </div>
+      <div class="year">
+        {{ date.year.split('').join(' ') }}
+      </div>
     </div>
   </div>
 </template>
@@ -15,17 +26,11 @@
 import dekatrian from './utils/dekatrian'
 
 export default {
-  name: 'app',
+  name: 'App',
   data () {
     return {
       date: {},
       inverval: null
-    }
-  },
-
-  methods: {
-    updateDate: function() {
-      this.date = dekatrian.date()
     }
   },
 
@@ -36,6 +41,12 @@ export default {
 
   destroyed: function () {
     clearInterval(this.interval)
+  },
+
+  methods: {
+    updateDate: function () {
+      this.date = dekatrian.date()
+    }
   }
 }
 </script>
