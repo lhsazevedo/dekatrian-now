@@ -8,15 +8,15 @@ Dekatrian is a simpler calendar proposal, which solves several problems in our c
 
 [Read more about the Dekatrian Calendar here!](https://translate.google.com/translate?sl=pt&tl=en&u=https%3A%2F%2Fwww.deviante.com.br%2Fnoticias%2Fdekatrian-um-calendario-minimamente-decente%2F)
 
-## Build Setup
+## Project Setup
 
-``` bash
-# install dependencies
+```sh
 npm install
+npm run dev
+```
 
-# serve with hot reload
-npm run serve
+### Compile and Minify for Production
 
-# build for production with minification
+```sh
 npm run build
 ```

@@ -1,55 +1,42 @@
+<script setup>
+import { ref, onBeforeUnmount } from 'vue'
+import dekatrian from './dekatrian'
+
+const date = ref({})
+
+const updateDate = () => {
+  date.value = dekatrian.date()
+}
+updateDate()
+
+const interval = setInterval(updateDate, 1000)
+
+onBeforeUnmount(() => {
+  clearInterval(interval)
+})
+</script>
+
 <template>
-  <div id="app">
-    <div class="wrapper">
-      <div
-        v-if="date.dayName"
-        class="date dayname"
-      >
-        {{ date.dayName }}
+  <div>
+    <div
+      v-if="date.dayName"
+      class="date dayname"
+    >
+      {{ date.dayName }}
+    </div>
+    <template v-else>
+      <div class="date day">
+        {{ date.day }}
       </div>
-      <div v-else>
-        <div class="date day">
-          {{ date.day }}
-        </div>
-        <div class="date month">
-          {{ date.monthName }}
-        </div>
+      <div class="date month">
+        {{ date.monthName }}
       </div>
-      <div class="year">
-        {{ date.year.split('').join(' ') }}
-      </div>
+    </template>
+    <div class="year">
+      {{ date.year.split('').join(' ') }}
     </div>
   </div>
 </template>
-
-<script>
-import dekatrian from './utils/dekatrian'
-
-export default {
-  name: 'App',
-  data () {
-    return {
-      date: {},
-      inverval: null
-    }
-  },
-
-  created: function () {
-    this.updateDate()
-    this.interval = setInterval(this.updateDate, 1000)
-  },
-
-  destroyed: function () {
-    clearInterval(this.interval)
-  },
-
-  methods: {
-    updateDate: function () {
-      this.date = dekatrian.date()
-    }
-  }
-}
-</script>
 
 <style>
 
