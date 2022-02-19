@@ -1,5 +1,7 @@
-<h1 align="center">Dekatrianow</h1>
-<p align="center">A simple page that displays the current date in the Dekatrian calendar.</p>
+# Dekatrian Now
+A simple page that displays the current date in the Dekatrian calendar
+
+[![Build](https://github.com/lhsazevedo/dekatrian-now/actions/workflows/build.yml/badge.svg)](https://github.com/lhsazevedo/dekatrian-now/actions/workflows/build.yml)
 
 ## The Dekatrian Calendar
 September is the month... SEVEN? Wroong, it's the month Nine. Nine as in November, which is actually 11. Each month has 30 days right? Or 31… or 28, who sometimes earn an extra day every 4 years.
